@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Final Form</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="FinalForm.css">
+	<script type="text/javascript">
+			function checkfield1(){
+			field= document.getElementById('fname').value;
+
+			if (field.length<=1) {
+				document.getElementById('msg1').innerHTML="please input correct name";
+				document.getElementById('msg1').style.color="red";
+			}
+			else
+			{
+				document.getElementById('msg1').innerHTML="valid";
+				document.getElementById('msg1').style.color="green";
+			}
+		}
+		function checkfield2(){
+			field2= document.getElementById('mobile').value;
+
+			if (field2.length==10) {
+				document.getElementById('msg2').innerHTML="valid";
+				document.getElementById('msg2').style.color="green";
+			}
+			else
+			{
+				document.getElementById('msg2').innerHTML="! please input 10-digit mobile no.";
+				document.getElementById('msg2').style.color="red"
+			}
+		}
+		function checkfield3(){
+			var field3= document.getElementById('email').value;
+			var rel=/^[A-Za-z]{1,15}[A-za-z0-9]{0,15}[@][A-Za-z]{1,15}[.][c][o][m]$/
+			if (rel.test(field3)) {
+				document.getElementById('msg3').innerHTML="valid";
+				document.getElementById('msg3').style.color="green";
+				return true;
+			}
+			else
+			{
+				document.getElementById('msg3').innerHTML="not valid";
+				document.getElementById('msg3').style.color="red"
+				return false;
+			}
+		}
+		function submit(){
+			var namef=document.getElementById('fname').value;
+			var namel=document.getElementById('lname').value;
+			var username=namef+" "+ namel;
+			var phone=document.getElementById('mobile').value;
+			var class1=document.getElementById('class').value;
+			var email1=document.getElementById('email').value;
+			var dob1=document.getElementById('dob').value;
+			if(namef===""){
+				alert("please enter the name")
+
+			}
+			else if(phone===""){
+				alert("please enter the mobile no.");
+			}
+			else if(class1<1){
+				alert("please select the class");
+			}
+			else if(email1==="") {
+				alert("enter the email");
+			}
+			else{
+			document.getElementById('msg4').innerHTML+="Hello"+" "+username.toUpperCase();
+			document.getElementById('msg5').innerHTML+="you have successfully registered for class "+class1+"."+"<br>";
+			document.getElementById('msg6').innerHTML+="We will send confirmation of Admission via your email Address: "+"<br>"+email1+" and mobile no:"+phone+".";
+		    alert("you have successfully registered.Enter ok");
+		}
+		}
+	</script>
+</head>
+<body>
+	<h1>Admission Form</h1><br>
+	<p>
+		Hello! Welcome to our school's website.<br>
+		Our school guides the students a better <br>
+		way to achieve their goals. Here is a form <br>
+		for admission of a student.<br>
+		Please make sure that required fields are filled up.<br>
+		Required fields are marked with <color>*</color>(asterisk).
+	</p>
+	<form action="TYPE">
+		<table>
+			<tr>
+				<td>Full Name*</td>
+				<td>:</td>
+				<td><input type="text" name="fname" id="fname" placeholder="First name" onblur="checkfield1();"></td>
+				<td><input type="text" name="lname" id="lname" placeholder="Last name"></td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td></td>
+				<td><span id="msg1"></span></td>
+			</tr>
+			<tr>
+				<td>Class you want <br>to apply for*</td>
+				<td>:</td>
+				<td><select id="class" name="class">
+					<option value="0">select</option>
+					<option value="1">I</option>
+					<option value="2">II</option>
+					<option value="3">III</option>
+					<option value="4">IV</option>
+					<option value="5">V</option>
+					<option value="6">VI</option>
+					<option value="7">VII</option>
+					<option value="8">VIII</option>
+					<option value="9">IX</option>
+					<option value="10">X</option>
+					<option value="11">XI</option>
+					<option value="12">XII</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Birth Date</td>
+				<td>:</td>
+				<td><input type="Date" name="dob" id="dob"></td>
+			</tr>
+			<tr>
+				<td>Parents or Guardian Name</td>
+				<td>:</td>
+				<td><input type="text" name="fname" id="pname" placeholder="First name"></td>
+				<td><input type="text" name="lname" id="gname" placeholder="Last name"></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td>:</td>
+				<td><input type="Address" name="Saddress" id="Saddress" placeholder="Street Address"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type="Address" name="Caddress" id="Caddress" placeholder="City"></td>
+				<td><select id="country" name="country">
+					<option value="India">India</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Email*</td>
+				<td>:</td>
+				<td><input type="email" name="email" id="email" placeholder="email" onblur="checkfield3();"></td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td style="font-size: 68%">*your Admission will send via email*</td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td><span id="msg3"></span></td>
+			</tr>
+			<tr>
+				<td>Mobile*</td>
+				<td>:</td>
+				<td><input type="number" name="Mobile" id="mobile" placeholder="Mobile No." onblur="checkfield2();"></td>
+				<td><span>xxx-xxx-xxxx &nbsp;</span></td>
+			</tr>
+			<tr>
+				<td> </td>
+				<td> </td>
+				<td><span id="msg2"></span></td>
+			</tr>
+		</table>
+	</form>
+	<button onclick="submit();">Submit</button><br>
+		<div><span id="msg4"></span>
+		<br>
+		<span id="msg5"></span>
+		<span id="msg6"></span>
+		</div>
+</body>
+</html>

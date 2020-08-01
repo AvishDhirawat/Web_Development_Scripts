@@ -1,0 +1,42 @@
+body
+{
+  background-color: lightgray;
+}
+h1
+{
+  color: rgba(0, 0, 200, 0.5);
+}
+.paraClass1
+{
+  font-size: 150%;
+  font-style: italic;
+  color: rgba(200, 10, 250, 1.0);
+}
+.paraClass2
+{
+  font-size: 110%;
+  font-family:cursive;
+  color: brown;
+}
+.divClass1
+{
+  background-color: orange;
+}
+.divClass2
+{
+  background-color: white;
+}
+.divClass3
+{
+  background-color: green;
+}
+table
+{
+  border: dashed 2px black ;
+}
+td
+{
+  border: solid green 1px;
+  text-align: center;
+  padding: 8px
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>HTML Forms</title>
+	<script type="text/javascript">
+		function validatePhone() {
+			var phonenummber = document.getElementById("phone").value;
+			var con_no = /^\d{4}-\d{7}$/;
+			if (con_no.test(phonenummber)) {
+				document.getElementById("phonePrompt").style.color = "Green";
+				document.getElementById("phonePrompt").innerHTML = "<strong>Valid</strong>";
+				return true;
+			}
+			else{
+				document.getElementById("phonePrompt").style.color = "Red";
+				document.getElementById("phonePrompt").innerHTML = "<strong>Not Valid!</strong>";
+				return false;
+
+		}
+			}
+	</script>
+</head>
+<body>
+	<form>
+		Name:<br>
+		<input type="text" name="name" required=""><br>
+		Father Name: <br>
+		<input type="text" name="fname" required=""><br>
+		Contact No: <br>
+		<input type="text" id="phone" name="phone" onblur="validatePhone();" placeholder="xxxx-xxxxxxx"><span id="phonePrompt">xxxx-xxxxxxx</span><br>
+		Birthday:<br>
+		<input type="date" name="bday"><br>
+		Favourite Color:<br>
+		<input type="color" name="fcolor" value="#000000"><br>
+		<input type="submit" name="Submit">
+
+
+	</form>
+
+</body></html>
